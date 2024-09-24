@@ -119,29 +119,44 @@
         }
     </style>
     <script>
-        function checkAuthentication() {
-            const userId = localStorage.getItem('userId'); // Verifica se o usuário está autenticado
+         function checkAuthentication() {
+        const userId = localStorage.getItem('userId');
 
-            if (!userId) {
-                // Se não estiver autenticado, redireciona para a página de login
-                window.location.href = 'index.html';
-            }
-        }
-
-        // Chama a função ao carregar a página
-        window.onload = checkAuthentication;
-
-        function logout() {
-            // Limpa o userId do localStorage e redireciona para o login
-            localStorage.removeItem('userId');
+        if (!userId) {
             window.location.href = 'index.html';
         }
+    }
+
+    function countAccess() {
+        // Recupera o contador de acessos do LocalStorage
+        let count = localStorage.getItem('accessCount');
+
+        // Se o contador ainda não existir, define como 0
+        if (!count) {
+            count = 0;
+        }
+
+        // Incrementa o contador
+        count++;
+        
+        // Atualiza o contador no LocalStorage
+        localStorage.setItem('accessCount', count);
+
+        // Exibe o número de acessos na página
+        document.getElementById('accessCount').innerText = `Número de acessos: ${count}`;
+    }
+
+    window.onload = function() {
+        countAccess();  // Chama o contador de acessos
+        checkAuthentication();  // Já estava no seu código original
+    };
     </script>
 </head>
 <body>
     <div class="container">
         <div class="profile">
             <img src="https://tangerin.vteximg.com.br/arquivos/ids/161979/Shopito-Klabin_Prancheta.png?v=638076940353030000" alt="Sua Foto">
+            <p id="accessCount"></p>
             <h1>FROTA PRÓPRIA HUB JD. ADRIANA</h1>
             <p class="description">Acesso Rápido a informações</p>
         </div>
