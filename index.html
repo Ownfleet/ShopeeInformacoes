@@ -50,6 +50,8 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            position: relative;
+            text-align: left;
         }
         .link-group a:hover {
             background-color: #cc3c24; /* Mudança de cor no hover */
@@ -61,6 +63,38 @@
             margin-bottom: 5px;
             color: #333;
         }
+        .important-links {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #ffe8e8;
+            border: 1px solid #ee4d2d;
+            border-radius: 10px;
+        }
+        .important-links h2 {
+            font-size: 22px;
+            color: #ee4d2d;
+            margin-bottom: 15px;
+        }
+        .important-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #4285f4; /* Cor do botão do Google */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .important-links a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+        }
+        .important-links a:hover {
+            background-color: #357ae8; /* Cor do botão do Google ao passar o mouse */
+        }
     </style>
 </head>
 <body>
@@ -70,7 +104,18 @@
             <h1>FROTA PRÓPRIA HUB JD. ADRIANA</h1>
             <p class="description">Acesso Rápido a informações</p>
         </div>
-        
+
+        <!-- Seção para Links Importantes -->
+        <div class="important-links">
+            <h2>Links de disponibilidade</h2>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkjdqnx8l5nxd-qOgvuIePN2wtOPhXVrcPhO-L3FQrWP-cQ/viewform" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968528.png" alt="Google Forms"> Disponibilidade AM (00:00 ás 14:00)
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeG3GFFLTmUIVKPGobncy-ZS4Yx_ImwoLh7r26K4irPol4UQ/viewform" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968528.png" alt="Google Forms"> Disponibilidade AM (06:00 ás 8:30)
+            </a>
+        </div>
+
         <div class="links">
             <!-- Link 1 -->
             <div class="link-group">
