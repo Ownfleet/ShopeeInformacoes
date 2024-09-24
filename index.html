@@ -11,12 +11,16 @@
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             text-align: center;
+            flex-grow: 1;
         }
         .profile {
             margin-bottom: 20px;
@@ -95,7 +99,44 @@
         .important-links a:hover {
             background-color: #357ae8; /* Cor do botão do Google ao passar o mouse */
         }
+        .logout-container {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            margin-top: auto;
+            padding-bottom: 20px; /* Espaçamento no fundo da página */
+        }
+        .logout-button {
+            display: inline-block;
+            padding: 10px 40px;
+            background-color: red; /* Cor do botão Deslogar */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .logout-button:hover {
+            background-color: darkred; /* Cor do botão ao passar o mouse */
+        }
     </style>
+    <script>
+        function checkAuthentication() {
+            const userId = localStorage.getItem('userId'); // Verifica se o usuário está autenticado
+
+            if (!userId) {
+                // Se não estiver autenticado, redireciona para a página de login
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = checkAuthentication;
+
+        function logout() {
+            // Limpa o userId do localStorage e redireciona para o login
+            localStorage.removeItem('userId');
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -164,7 +205,12 @@
                 <p class="link-title">Orientações adicionais</p>
                 <a href="https://drive.google.com/file/d/1G74pyAClQi-KZD9vaI_m1SYOpECsWZCl/view?usp=drive_link" target="_blank">Acesse aqui</a>
             </div>
+
+            <!-- Botão de Logout centralizado -->
+            <div class="logout-container">
+                <a href="javascript:void(0);" class="logout-button" onclick="logout()">Deslogar</a>
+            </div>
         </div>
-    </div>
+
 </body>
 </html>
