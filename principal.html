@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOPEE- JD.ADRIANA</title>
-     <link rel="icon" href="https://media0.giphy.com/media/lXm34U4LRVK8AhU0r3/200w.webp" type="image/png">
+    <title>Seu Site Personalizado</title>
+    <link rel="icon" href="https://media0.giphy.com/media/lXm34U4LRVK8AhU0r3/200w.webp" type="image/png">
     <style>
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -119,44 +120,174 @@
             background-color: darkred; /* Cor do botão ao passar o mouse */
         }
     </style>
-    <script>
-         function checkAuthentication() {
-        const userId = localStorage.getItem('userId');
-
-        if (!userId) {
-            window.location.href = 'index.html';
-        }
-    }
-
-    function countAccess() {
-        // Recupera o contador de acessos do LocalStorage
-        let count = localStorage.getItem('accessCount');
-
-        // Se o contador ainda não existir, define como 0
-        if (!count) {
-            count = 0;
-        }
-
-        // Incrementa o contador
-        count++;
-        
-        // Atualiza o contador no LocalStorage
-        localStorage.setItem('accessCount', count);
-
-        // Exibe o número de acessos na página
-        document.getElementById('accessCount').innerText = `Número de acessos: ${count}`;
-    }
-
-    window.onload = function() {
-        countAccess();  // Chama o contador de acessos
-        checkAuthentication();  // Já estava no seu código original
-    };
-    </script>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seu Site Personalizado</title>
+        <link rel="icon" href="https://media0.giphy.com/media/lXm34U4LRVK8AhU0r3/200w.webp" type="image/png">
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                text-align: center;
+                flex-grow: 1;
+            }
+            .profile {
+                margin-bottom: 20px;
+            }
+            .profile img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+            }
+            .profile h1 {
+                font-size: 24px;
+                margin: 15px 0;
+            }
+            .description {
+                font-size: 16px;
+                color: #555;
+            }
+            .links {
+                margin: 20px 0;
+                text-align: left;
+            }
+            .link-group {
+                margin: 20px 0;
+            }
+            .link-group a {
+                display: block;
+                padding: 15px;
+                margin: 10px 0;
+                background-color: #ee4d2d;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+                position: relative;
+                text-align: left;
+            }
+            .link-group a:hover {
+                background-color: #cc3c24; /* Mudança de cor no hover */
+            }
+            .link-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 20px;
+                margin-bottom: 5px;
+                color: #333;
+            }
+            .important-links {
+                margin: 40px 0;
+                padding: 20px;
+                background-color: #ffe8e8;
+                border: 1px solid #ee4d2d;
+                border-radius: 10px;
+            }
+            .important-links h2 {
+                font-size: 22px;
+                color: #ee4d2d;
+                margin-bottom: 15px;
+            }
+            .important-links a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 15px;
+                margin: 10px 0;
+                background-color: #4285f4; /* Cor do botão do Google */
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+            .important-links a img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+            }
+            .important-links a:hover {
+                background-color: #357ae8; /* Cor do botão do Google ao passar o mouse */
+            }
+            .logout-container {
+                display: flex;
+                justify-content: center; /* Centraliza horizontalmente */
+                margin-top: auto;
+                padding-bottom: 20px; /* Espaçamento no fundo da página */
+            }
+            .logout-button {
+                display: inline-block;
+                padding: 10px 40px;
+                background-color: red; /* Cor do botão Deslogar */
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+            .logout-button:hover {
+                background-color: darkred; /* Cor do botão ao passar o mouse */
+            }
+        </style>
+        <script>
+            // Função para verificar a autenticação do usuário
+            function checkAuthentication() {
+                const userId = localStorage.getItem('userId');
+    
+                // Se o usuário não estiver autenticado, redireciona para a página de login
+                if (!userId) {
+                    window.location.href = 'index.html';
+                }
+            }
+    
+            // Função para contar acessos e exibir na página
+            function countAccess() {
+                // Recupera o contador de acessos do LocalStorage
+                let count = localStorage.getItem('accessCount') || 0;
+    
+                // Incrementa o contador
+                count++;
+    
+                // Atualiza o contador no LocalStorage
+                localStorage.setItem('accessCount', count);
+    
+                // Exibe o número de acessos na página
+                document.getElementById('accessCount').innerText = `Número de acessos: ${count}`;
+            }
+    
+            // Função de logout para remover o ID do usuário e redirecionar para a página de login
+            function logout() {
+                // Remover dados do usuário do localStorage
+                localStorage.removeItem('userId');
+                
+                // Redirecionar para a página de login
+                window.location.href = 'index.html';
+            }
+    
+            // Executa quando a página é carregada
+            window.onload = function() {
+                countAccess();  // Chama o contador de acessos
+                checkAuthentication();  // Verifica a autenticação
+            };
+        </script>
 </head>
 <body>
     <div class="container">
         <div class="profile">
             <img src="https://tangerin.vteximg.com.br/arquivos/ids/161979/Shopito-Klabin_Prancheta.png?v=638076940353030000" alt="Sua Foto">
+           
             <h1>FROTA PRÓPRIA HUB JD. ADRIANA</h1>
             <p class="description">Acesso Rápido a informações</p>
         </div>
