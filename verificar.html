@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Localização</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVEe6yRVxMbToAKeuOlUNvLZ9E8GS0Jp4&callback=initMap" async defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            max-width: 800px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+
+        #link {
+            display: none;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 14px; /* Tamanho menor */
+            transition: transform 0.3s, background-color 0.3s;
+            display: inline-block;
+        }
+
+        #link:hover {
+            background-color: #45a049;
+            transform: scale(1.1); /* Efeito de aumentar o botão */
+        }
+
+        #link:active {
+            transform: scale(0.95); /* Efeito ao clicar */
+        }
+
+        #error-message {
+            color: red;
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+    <script>
+        const predefinedLocation = { lat: -23.423050, lng: -46.522906 }; // Localização definida
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: predefinedLocation
+            });
+
+            new google.maps.Marker({ position: predefinedLocation, map: map });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                showErrorMessage("Geolocalização não suportada.");
+            }
+        }
+
+        function showPosition(position) {
+            const userLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            new google.maps.Marker({ position: userLocation, map: map });
+            map.setCenter(userLocation);
+
+            if (isUserWithinRadius(userLocation, predefinedLocation, 50)) {
+                document.getElementById('link').style.display = 'inline-block';
+                document.getElementById('error-message').style.display = 'none';
+            } else {
+                showErrorMessage("Você não está no local apropriado para acessar o link.");
+            }
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    showErrorMessage("Permissão de localização negada.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    showErrorMessage("Localização indisponível.");
+                    break;
+                default:
+                    showErrorMessage("Erro desconhecido.");
+            }
+        }
+
+        function isUserWithinRadius(userLocation, centerLocation, radius) {
+            const R = 6371000;
+            const lat1 = userLocation.lat * (Math.PI / 180);
+            const lat2 = centerLocation.lat * (Math.PI / 180);
+            const deltaLat = (centerLocation.lat - userLocation.lat) * (Math.PI / 180);
+            const deltaLng = (centerLocation.lng - userLocation.lng) * (Math.PI / 180);
+
+            const a = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
+                Math.cos(lat1) * Math.cos(lat2) *
+                Math.sin(deltaLng / 2) * Math.sin(deltaLng / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+            return (R * c) <= radius;
+        }
+
+        function showErrorMessage(message) {
+            const errorMessageDiv = document.getElementById('error-message');
+            errorMessageDiv.textContent = message;
+            errorMessageDiv.style.display = 'block';
+            document.getElementById('link').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificação de Localização</h1>
+    <div id="map"></div>
+    <a id="link" href="https://docs.google.com/forms/d/e/1FAIpQLSdD64woSXXO-KipSG74-qY_FwGT3vL6tOaLhafY-3zpG_t4tg/viewform">Acesse a página definida</a>
+    <div id="error-message"></div>
+</body>
+</html>
