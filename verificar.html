@@ -38,18 +38,18 @@
             border-radius: 5px;
             text-decoration: none;
             margin-top: 20px;
-            font-size: 14px; /* Tamanho menor */
+            font-size: 14px;
             transition: transform 0.3s, background-color 0.3s;
             display: inline-block;
         }
 
         #link:hover {
             background-color: #45a049;
-            transform: scale(1.1); /* Efeito de aumentar o botão */
+            transform: scale(1.1);
         }
 
         #link:active {
-            transform: scale(0.95); /* Efeito ao clicar */
+            transform: scale(0.95);
         }
 
         #error-message {
@@ -72,6 +72,10 @@
 
             new google.maps.Marker({ position: predefinedLocation, map: map });
 
+            requestLocation();
+        }
+
+        function requestLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
             } else {
@@ -99,7 +103,7 @@
         function showError(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
-                    showErrorMessage("Permissão de localização negada.");
+                    showErrorMessage("Permissão de localização negada. Ative a localização nas configurações do navegador.");
                     break;
                 case error.POSITION_UNAVAILABLE:
                     showErrorMessage("Localização indisponível.");
