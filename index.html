@@ -1,198 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Site Personalizado</title>
-    <link rel="icon" href="https://media0.giphy.com/media/lXm34U4LRVK8AhU0r3/200w.webp" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-            flex-grow: 1;
-        }
-        .profile {
-            margin-bottom: 20px;
-        }
-        .profile img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-        }
-        .profile h1 {
-            font-size: 24px;
-            margin: 15px 0;
-        }
-        .description {
-            font-size: 16px;
-            color: #555;
-        }
-        .links {
-            margin: 20px 0;
-            text-align: left;
-        }
-        .link-group {
-            margin: 20px 0;
-        }
-        .link-group a {
-            display: block;
-            padding: 15px;
-            margin: 10px 0;
-            background-color: #ee4d2d;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            text-align: center; /* Centraliza o texto dentro do botão */
-        }
-        .link-group a:hover {
-            background-color: #cc3c24;
-        }
-        .link-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 20px 0 5px;
-            color: #333;
-        }
-        .important-links {
-            margin: 40px 0;
-            padding: 20px;
-            background-color: #ffe8e8;
-            border: 1px solid #ee4d2d;
-            border-radius: 10px;
-        }
-        .important-links h2 {
-            font-size: 22px;
-            color: #ee4d2d;
-            margin-bottom: 15px;
-        }
-        .important-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            margin: 10px 0;
-            background-color: #4285f4;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            text-align: center; /* Centraliza o texto no botão importante também */
-        }
-        .important-links a img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-        .important-links a:hover {
-            background-color: #357ae8;
-        }
-        @media (max-width: 600px) {
-            .profile img {
-                width: 120px;
-                height: 120px;
-            }
-            .profile h1 {
-                font-size: 20px;
-            }
-            .link-title {
-                font-size: 16px;
-            }
-            .link-group a {
-                padding: 10px;
-                font-size: 14px;
-            }
-            .important-links h2 {
-                font-size: 20px;
-            }
-        }
-    </style>
-    <script>
-        function checkAuthentication() {
-            const userId = localStorage.getItem('userId');
-            if (!userId) {
-                window.location.href = 'index.html';
-            }
-        }
-
-        function countAccess() {
-            let count = localStorage.getItem('accessCount') || 0;
-            count++;
-            localStorage.setItem('accessCount', count);
-            document.getElementById('accessCount').innerText = `Número de acessos: ${count}`;
-        }
-
-        window.onload = function() {
-            countAccess();
-            checkAuthentication();
-        };
-    </script>
+    <link rel="stylesheet" href="style.css">
+    <title>Login do Administrador</title>
 </head>
 <body>
     <div class="container">
-        <div class="profile">
-            <img src="https://tangerin.vteximg.com.br/arquivos/ids/161979/Shopito-Klabin_Prancheta.png?v=638076940353030000" alt="Sua Foto">
-            <h1>FROTA PRÓPRIA HUB JD. ADRIANA</h1>
-            <p class="description">Acesso Rápido a informações</p>
-        </div>
-
-        <div class="important-links">
-            <h2>Links de Disponibilidade</h2>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkjdqnx8l5nxd-qOgvuIePN2wtOPhXVrcPhO-L3FQrWP-cQ/viewform" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968528.png" alt="Google Forms"> Disponibilidade AM (00:00 às 14:00)
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeG3GFFLTmUIVKPGobncy-ZS4Yx_ImwoLh7r26K4irPol4UQ/viewform" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968528.png" alt="Google Forms"> Disponibilidade SAMEDAY (06:00 às 8:30)
-            </a>
-        </div>
-
-        <div class="link-group">
-            <p class="link-title">Como Realizar Acareação</p>
-            <a href="https://drive.google.com/file/d/1lJZkqO9ano15ecO2Tp-c7qy1g4qpDiMr/view?usp=drive_link" target="_blank">Acesse aqui</a>
-        </div>
-
-        <div class="link-group">
-            <p class="link-title">Como fazer PNR</p>
-            <a href="https://drive.google.com/file/d/1IizIjkHjTQ6kkNxSV2yHk0jc_wfJBRO-/view?usp=drive_link" target="_blank">Acesse aqui</a>
-        </div>
-
-        <div class="link-group">
-            <p class="link-title">Como dar baixa como entregue</p>
-            <a href="https://drive.google.com/file/d/1qjQTJ8KDQjPzUCgcMM-8VMMvrJglCpMu/view?usp=drive_link" target="_blank">Acesse aqui</a>
-        </div>
-
-        <div class="link-group">
-            <p class="link-title">Mapa do app driver</p>
-            <a href="https://drive.google.com/file/d/1-Jny3cU3DjCZK2Mk9rAbqpsn5YFXkGJX/view?usp=drive_link" target="_blank">Acesse aqui</a>
-        </div>
-
-        <div class="link-group">
-            <p class="link-title">Como dar ocorrência</p>
-            <a href="https://drive.google.com/file/d/1-dSLMbCWVIzHAIUzdJy8FCXXQvQ0xAqx/view?usp=drive_link" target="_blank">Acesse aqui</a>
-        </div>
-
-        <div class="link-group">
-            <p class="link-title">Reconhecimento Facial</p>
-            <a href="https://drive.google.com/file/d/1x9Hfkxuorj8GtZo0MDGfhLYiLQplgoEK/view?usp=drive_link" target="_blank">Acesse aqui</a>
-        </div>
-
-        <div class="link-group">
-            <p class="link-title">Nota Fiscal</p>
-            <a href="https://drive.google.com/file/d/1hFtjrHLozp_uKu_3Aq4sefxnU8eheiln/view?usp=sharing" target="_blank">Acesse aqui</a>
-        </div>
-
+        <h2>Login do Administrador</h2>
+        <form id="loginForm">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Acessar</button>
+        </form>
+        <p id="error" style="color: red;"></p>
     </div>
+    <script src="login.js"></script>
 </body>
 </html>

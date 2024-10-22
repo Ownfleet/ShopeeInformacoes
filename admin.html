@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerenciamento de Escalas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Gerenciamento de Escalas</h2>
+        <button id="logoutBtn">Deslogar</button> <!-- Botão de Deslogar -->
+        <h3>Upload de Escalas:</h3>
+        <input type="file" id="uploadFile" accept=".xlsx, .xls" />
+        <button id="uploadBtn">Fazer Upload</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Evento de clique para deslogar
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            // Redireciona para a página de login
+            window.location.href = 'index.html'; // Altere o caminho se necessário
+        });
+    </script>
+</body>
+</html>
