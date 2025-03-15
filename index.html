@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Spxownfleet</title>
+    <title>Spxownfleet</title>
     <link rel="icon" href="https://media0.giphy.com/media/lXm34U4LRVK8AhU0r3/200w.webp" type="image/png">
     <style>
         * {
@@ -20,7 +21,7 @@
         }
 
         .container {
-            max-width: 400px;
+            max-width: 500px;
             margin: auto;
             background: white;
             padding: 20px;
@@ -46,39 +47,38 @@
             margin-bottom: 20px;
         }
 
-        .link-group {
-            margin: 15px 0;
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .link-group p {
-            font-size: 16px;
-            font-weight: bold;
-            color: #EE4D2D;
-        }
-
-        .link-group a {
-            display: block;
+        .grid-item {
             background: #EE4D2D;
             color: white;
-            padding: 16px;
-            margin-top: 5px;
+            padding: 12px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 60px; /* Garante espaço suficiente para o texto */
             transition: 0.3s;
+            word-wrap: break-word; /* Quebra o texto se necessário */
+            white-space: normal; /* Permite quebras de linha */
         }
 
-        .link-group a:hover {
+        .grid-item:hover {
             background: #CC3C24;
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 15px;
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* Em telas menores, 2 colunas */
             }
         }
     </style>
@@ -91,50 +91,17 @@
         <p class="description">Acesso Rápido a informações</p>
     </div>
 
-    <div class="link-group">
-        <p class="link-title">Como Realizar Acareação</p>
-        <a href="https://drive.google.com/file/d/1lJZkqO9ano15ecO2Tp-c7qy1g4qpDiMr/view?usp=drive_link" target="_blank">Acesse aqui</a>
+    <div class="grid-container">
+        <a class="grid-item" href="https://drive.google.com/file/d/1lJZkqO9ano15ecO2Tp-c7qy1g4qpDiMr/view?usp=drive_link" target="_blank">Como Realizar Acareação</a>
+        <a class="grid-item" href="https://drive.google.com/file/d/1IizIjkHjTQ6kkNxSV2yHk0jc_wfJBRO-/view?usp=drive_link" target="_blank">Como fazer PNR</a>
+        <a class="grid-item" href="textopnr.html">Procedimento de Acareação - PNR</a>
+        <a class="grid-item" href="https://drive.google.com/file/d/1qjQTJ8KDQjPzUCgcMM-8VMMvrJglCpMu/view?usp=drive_link" target="_blank">Como dar baixa como entregue</a>
+        <a class="grid-item" href="https://www.youtube.com/shorts/KVgFpVQs5z0" target="_blank">Como dar baixa em massa (portaria)</a>
+        <a class="grid-item" href="https://drive.google.com/file/d/1-Jny3cU3DjCZK2Mk9rAbqpsn5YFXkGJX/view?usp=drive_link" target="_blank">Mapa do app driver</a>
+        <a class="grid-item" href="https://drive.google.com/file/d/1-dSLMbCWVIzHAIUzdJy8FCXXQvQ0xAqx/view?usp=drive_link" target="_blank">Como dar ocorrência</a>
+        <a class="grid-item" href="https://drive.google.com/file/d/1x9Hfkxuorj8GtZo0MDGfhLYiLQplgoEK/view?usp=drive_link" target="_blank">Reconhecimento Facial</a>
+        <a class="grid-item" href="https://drive.google.com/file/d/1hFtjrHLozp_uKu_3Aq4sefxnU8eheiln/view?usp=sharing" target="_blank">Nota Fiscal</a>
     </div>
-
-    <div class="link-group">
-        <p class="link-title">Como fazer PNR</p>
-        <a href="https://drive.google.com/file/d/1IizIjkHjTQ6kkNxSV2yHk0jc_wfJBRO-/view?usp=drive_link" target="_blank">Acesse aqui</a>
-    </div>
-
-    <div class="link-group">
-      <p class="link-title"> Procedimento de Acareação - PNR </p>
-      <a href="textopnr.html">Acesse aqui</a>
-    </div>
-
-    <div class="link-group">
-        <p class="link-title">Como dar baixa como entregue</p>
-        <a href="https://drive.google.com/file/d/1qjQTJ8KDQjPzUCgcMM-8VMMvrJglCpMu/view?usp=drive_link" target="_blank">Acesse aqui</a>
-    </div>
-    
-      <div class="link-group">
-        <p class="link-title">Como dar baixa em massa (portaria)</p>
-        <a href="https://drive.google.com/file/d/1o1TLg4MR6ie3EQjVZ5O0VBpCztCY-uGV/view?usp=sharing">Acesse aqui</a>
-    </div>
-
-    <div class="link-group">
-        <p class="link-title">Mapa do app driver</p>
-        <a href="https://drive.google.com/file/d/1-Jny3cU3DjCZK2Mk9rAbqpsn5YFXkGJX/view?usp=drive_link" target="_blank">Acesse aqui</a>
-    </div>
-
-    <div class="link-group">
-        <p class="link-title">Como dar ocorrência</p>
-        <a href="https://drive.google.com/file/d/1-dSLMbCWVIzHAIUzdJy8FCXXQvQ0xAqx/view?usp=drive_link" target="_blank">Acesse aqui</a>
-    </div>
-
-    <div class="link-group">
-        <p class="link-title">Reconhecimento Facial</p>
-        <a href="https://drive.google.com/file/d/1x9Hfkxuorj8GtZo0MDGfhLYiLQplgoEK/view?usp=drive_link" target="_blank">Acesse aqui</a>
-    </div>
-
-    <div class="link-group">
-        <p class="link-title">Nota Fiscal</p>
-        <a href="https://drive.google.com/file/d/1hFtjrHLozp_uKu_3Aq4sefxnU8eheiln/view?usp=sharing" target="_blank">Acesse aqui</a>
-    </div>
-</div>
+  </div>
 </body>
 </html>
