@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PNR - Procedimento de Acareação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -13,7 +14,7 @@
             background-color: #f9f9f9;
         }
         .container {
-            max-width: 90%;
+            width: 90%;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
@@ -78,14 +79,16 @@
         <p><strong>Texto para PNR:</strong></p>
 
         <div id="message">
-            <p><strong>Olá</strong> (nome do cliente),</p>
-            <p>Eu sou da <strong>SPXOWNFLEET</strong>, entregador Shopee. Gostaria de confirmar se a entrega do pedido <strong>BRxxxxxxxxxx</strong> ocorreu como esperado. Você poderia confirmar se o pacote foi realmente recebido, por favor?</p>
+            <p><strong>📌 ENTREGA SHOPEE</strong></p>
+            <p>Olá ___,</p>
+            <p>Eu sou _______ da <strong>SPXOWNFLEET</strong>, entregador(a) Shopee. Gostaria de confirmar se sua entrega do pedido <strong>BR__</strong> ocorreu como o esperado.</p>
+            <p>Você poderia realmente confirmar se o pacote foi recebido, por favor?</p>
             <p>
-                Envie 1: Se já recebeu o seu pedido <br>
-                Envie 2: Se recebeu com alguma divergência e qual seria? <br>
-                Envie 3: Não recebido
+                Envie 1: Se você já recebeu o seu Pedido<br>
+                Envie 2: Se você ainda não recebeu o seu Pedido<br>
+                Envie 3: Se você recebeu o pedido, porém o vendedor mandou o pedido errado, faltante ou em desacordo com a compra.
             </p>
-            <p>Obrigado pela resposta!</p>
+            <p>Obrigado pela resposta.</p>
         </div>
 
         <!-- Botão de Copiar -->
@@ -114,20 +117,22 @@
 
     <script>
         function copyText() {
-            // Seleciona o elemento oculto de texto
             let textArea = document.getElementById("text-to-copy");
             let messageDiv = document.getElementById("message");
+            let button = document.querySelector(".copy-button");
 
-            // Pega apenas o texto sem formatação HTML
             textArea.value = messageDiv.innerText;
             textArea.select();
-            textArea.setSelectionRange(0, 99999); // Para compatibilidade com mobile
-
-            // Copia o conteúdo
+            textArea.setSelectionRange(0, 99999);
             document.execCommand("copy");
 
-            // Alerta para o usuário (pode ser substituído por um popup)
-            alert("Texto copiado para a área de transferência!");
+            button.innerText = "Copiado!";
+            button.style.backgroundColor = "#28a745";
+
+            setTimeout(() => {
+                button.innerText = "Copiar Texto";
+                button.style.backgroundColor = "#007BFF";
+            }, 2000);
         }
     </script>
 </body>
